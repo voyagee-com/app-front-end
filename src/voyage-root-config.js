@@ -52,6 +52,14 @@ const applications = constructApplications({
 const layoutEngine = constructLayoutEngine({ routes, applications });
 applications.forEach(registerApplication);
 
-start({
-  urlRerouteOnly: true,
+// start({
+//   urlRerouteOnly: true,
+// });
+
+System.import("@voyage/artigas-ds").then(() => {
+  // Activate the layout engine once the styleguide CSS is loaded
+  layoutEngine.activate();
+  start({
+    urlRerouteOnly: true,
+  });
 });

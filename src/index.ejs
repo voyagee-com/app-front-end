@@ -52,7 +52,19 @@
         "@voyage/main-app": "//localhost:8500/voyage-main-app.js",
         "@voyage/flights-app": "//localhost:8501/voyage-flights-app.js",
         "@voyage/hotels-app": "//localhost:8502/voyage-hotels-app.js",
-        "@voyage/compare-app": "//localhost:8503/voyage-compare-app.js"
+        "@voyage/compare-app": "//localhost:8503/voyage-compare-app.js",
+        "@voyage/artigas-ds": "//localhost:8600/voyage-artigas-ds.js"
+      }
+    }
+  </script>
+  <% } else { %>
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "@voyage/root-config": "https://voyagee.frontend.apps.nyc3.digitaloceanspaces.com/voyage-root-config.js",
+        "@voyage/main-app": "https://voyagee.frontend.apps.nyc3.digitaloceanspaces.com/voyage-main-app.js",
+        "@voyage/flights-app": "https://voyagee.frontend.apps.nyc3.digitaloceanspaces.com/voyage-flights-app.js",
+        "@voyage/hotels-app": "https://voyagee.frontend.apps.nyc3.digitaloceanspaces.com/voyage-hotels-app.js"
       }
     }
   </script>
@@ -88,7 +100,7 @@
           </route>
 
         <section class="side">
-          <application name="@voyage/compare-app"></application>
+
         </section>
       </main>
       <footer>
@@ -152,12 +164,14 @@
       box-shadow: 0 -1px 3px var(--base);
       overflow:hidden;
       transform: translate(0px, 186px);
-      /* transform: translate(350px, 186px); */
+      /* transform: translate(350px, 186px);*/
     }
   </style>
 </head>
 <body>
+  <p>%NODE_ENV%</p>
   <script>
+    System.import('@voyage/artigas-ds');
     System.import('@voyage/root-config');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
